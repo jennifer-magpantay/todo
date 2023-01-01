@@ -1,0 +1,100 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.task__container {
+  width: 100%;
+  height: calculateRem(72px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: $gap;
+  margin-inline: auto;
+  margin-top: $gap;
+  padding: $gap calc($gap * 2);
+  background-color: $gray-500;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $gray-400;
+  }
+
+  .task {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    color: $white;
+    cursor: pointer;
+    font-size: calculateRem(16px);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+
+      &:checked ~ .checkmark:after {
+        display: block;
+      }
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: $gray-100;
+      border-radius: 4px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid $white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+
+    &:hover input ~ .checkmark {
+      background-color: $gray-300;
+    }
+
+    & input:checked ~ .checkmark {
+      background-color: $blue-dark;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: $gray-700;
+    }
+  }
+}

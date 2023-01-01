@@ -1,0 +1,61 @@
+@use "../variables" as *;
+@use "../responsive" as *;
+@use "../functions" as *;
+
+.main {
+  width: 90%;
+  max-width: 1024px;
+  min-height: calc(100vh - 200px);
+  position: relative;
+  padding: calculateRem(24px) 0;
+  margin: 0 auto;
+
+  .results__container {
+    width: 100%;
+    height: auto;
+    margin: 126px auto 0;
+
+    @include for-tablet-portrait-up {
+      margin: 66px auto 0;
+    }
+
+    .results__header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: calc($half-gap * 3) 0;
+      background-color: $gray-400;
+      border-radius: 8px;
+      border: none;
+
+      p {
+        width: 100%;
+        line-height: 1.4;
+
+        &:first-of-type {
+          margin-bottom: $gap;
+        }
+
+        @include for-tablet-portrait-up {
+          width: 50%;
+
+          &:first-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    p {
+      padding-left: 32px;
+      color: $gray-200;
+      font-size: calculateRem(18px);
+
+      @include for-small-desktop-up {
+        font-size: calculateRem(20px);
+      }
+    }
+  }
+}

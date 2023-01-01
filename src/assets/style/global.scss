@@ -1,0 +1,49 @@
+@use "./reset";
+@use "./responsive";
+@use "./variables" as *;
+@use "./fonts";
+@use "./functions" as *;
+
+@use "./components/header";
+@use "./components/main";
+@use "./components/form";
+@use "./components/listItem";
+@use "./components/footer";
+
+body {
+  background-color: $gray-600;
+  font-family: "Inter", sans-serif;
+}
+
+.app__container {
+  // width: 100%;
+  // max-width: 1024px;
+  // padding: calculateRem(24px);
+  display: flex;
+  flex-direction: column;
+
+  .results {
+    width: 100&;
+    margin-top: 100px;
+    padding-bottom: 8px;
+    color: $gray-300;
+    border-bottom: 01px solid $gray-100;
+    font-size: calculateRem(18px);
+    font-weight: $medium;
+    text-align: left;
+  }
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}

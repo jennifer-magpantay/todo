@@ -1,0 +1,25 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.header {
+  width: 100%;
+  //max-width: 1024px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: calculateRem(24px);
+  background-color: $gray-700;
+
+  h1 {
+    margin-left: calculateRem(4px);
+    color: $blue;
+    font-size: calculateRem(40px);
+    font-weight: $bold;
+
+    span {
+      color: $purple;
+    }
+  }
+}
